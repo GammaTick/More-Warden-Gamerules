@@ -9,6 +9,7 @@ public class Initialization implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		MoreWardenGamerules.register();
 		LOGGER.info("More Warden Gamerules were added to your game successfully!");
 	}
 }

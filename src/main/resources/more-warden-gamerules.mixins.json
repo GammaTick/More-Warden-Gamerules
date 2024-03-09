@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "net.wardengamerules.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins": [],
+	"mixins": [
+		"CanWardenUseSonicBoom"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	}
