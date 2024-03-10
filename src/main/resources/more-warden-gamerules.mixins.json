@@ -5,7 +5,8 @@
 	"mixins": [
 		"CanWardenUseSonicBoom",
 		"CanWardenDisableShields",
-		"CanWardenRideEntities"
+		"CanWardenRideEntities",
+		"CanWardenGiveDarkness"
 	],
 	"injectors": {
 		"defaultRequire": 1
