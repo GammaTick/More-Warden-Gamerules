@@ -6,7 +6,8 @@
 		"CanWardenUseSonicBoom",
 		"CanWardenDisableShields",
 		"CanWardenRideEntities",
-		"CanWardenGiveDarkness"
+		"CanWardenGiveDarkness",
+		"CanWardenEmitVibrations"
 	],
 	"injectors": {
 		"defaultRequire": 1
