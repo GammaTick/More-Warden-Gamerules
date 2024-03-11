@@ -20,6 +20,6 @@ public abstract class CanWardenRideEntities {
             cancellable = true
     )
     private boolean canStartRiding(Entity entity, CallbackInfoReturnable<Boolean> infoReturnable) {
-        return entity.getWorld().getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_RIDE_ENTITIES);
+        return entity.world.getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_RIDE_ENTITIES);
     }
 }

@@ -18,6 +18,6 @@ public abstract class CanWardenDisableShields {
             cancellable = true
     )
     private boolean disablesShield(CallbackInfoReturnable<Boolean> info) {
-        return ((WardenEntity) (Object) this).getWorld().getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_DISABLE_SHIELD);
+        return ((WardenEntity) (Object) this).world.getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_DISABLE_SHIELD);
     }
 }

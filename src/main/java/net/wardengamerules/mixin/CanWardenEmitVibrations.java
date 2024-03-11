@@ -18,6 +18,6 @@ public class CanWardenEmitVibrations {
             cancellable = true
     )
     protected boolean occludeVibrationSignals(CallbackInfoReturnable<Boolean> info) {
-        return !((WardenEntity) (Object) this).getWorld().getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_EMIT_VIBRATIONS);
+        return !((WardenEntity) (Object) this).world.getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_EMIT_VIBRATIONS);
     }
 }

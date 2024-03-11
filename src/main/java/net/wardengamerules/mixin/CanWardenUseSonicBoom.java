@@ -20,6 +20,6 @@ public class CanWardenUseSonicBoom {
             cancellable = true
     )
     private boolean shouldRun(ServerWorld serverWorld, WardenEntity wardenEntity, CallbackInfoReturnable<Boolean> info) {
-        return wardenEntity.getWorld().getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_USE_SONIC_BOOM);
+        return wardenEntity.world.getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_USE_SONIC_BOOM);
     }
 }

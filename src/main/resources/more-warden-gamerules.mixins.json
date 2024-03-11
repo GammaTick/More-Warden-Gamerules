@@ -7,7 +7,8 @@
 		"CanWardenDisableShields",
 		"CanWardenRideEntities",
 		"CanWardenGiveDarkness",
-		"CanWardenEmitVibrations"
+		"CanWardenEmitVibrations",
+		"WardenDigCooldown"
 	],
 	"injectors": {
 		"defaultRequire": 1
