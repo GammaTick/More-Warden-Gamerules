@@ -1,6 +1,6 @@
 package net.wardengamerules.mixin;
 
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.mob.WardenBrain;
 import net.minecraft.util.Unit;
@@ -12,9 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin({WardenBrain.class})
-public abstract class WardenDigCooldown {
-    public WardenDigCooldown() {
-    }
+public abstract class WardenDigCooldown_OnReset {
 
     @Inject(
             method = {"resetDigCooldown"},

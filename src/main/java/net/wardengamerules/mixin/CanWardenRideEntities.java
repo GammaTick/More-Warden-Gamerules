@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
 @Mixin({WardenEntity.class})
-public abstract class CanWardenRideEntities {
+public class CanWardenRideEntities {
     public CanWardenRideEntities() {
     }
 
