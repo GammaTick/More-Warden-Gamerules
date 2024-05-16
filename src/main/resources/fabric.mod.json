@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "more-warden-gamerules",
+	"version": "${version}",
+	"name": "More Warden Gamerules",
+	"description": "This mod adds more gamerules to the warden.",
+	"authors": [
+		"JurassicBeast"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/more-warden-gamerules/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.wardengamerules.Initialization"
+		],
+		"fabric-datagen": []
+	},
+	"mixins": [
+		"more-warden-gamerules.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.9",
+		"minecraft": "~1.19",
+		"java": ">=17",
+		"fabric": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

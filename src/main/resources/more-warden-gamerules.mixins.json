@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "net.wardengamerules.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"MobEntityMixin",
+		"SonicBoomMixin",
+		"WardenBrainMixin",
+		"WardenEntityMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

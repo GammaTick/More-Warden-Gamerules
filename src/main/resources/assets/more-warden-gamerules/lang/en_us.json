@@ -1,0 +1,17 @@
+{
+  "gamerules.canWardenBeLeashed" : "Can warden be leashed",
+  "gamerules.canWardenDisableShields" : "Can warden disable shields",
+  "gamerules.canWardenEmitVibrations" : "Can warden emit vibrations",
+  "gamerules.canWardenGiveDarkness" : "Can warden give darkness",
+  "gamerules.canWardenImmediatelyDespawn" : "Can warden immediately despawn",
+  "gamerules.canWardenRideEntities" : "Can warden ride entities",
+  "gamerules.canWardenUseSonicBoom" : "Can warden use sonic boom",
+  "gamerules.sonicBoomCooldown" : "Sonic boom cooldown",
+  "gamerules.sonicBoomDamage" : "Sonic boom damage",
+  "gamerules.sonicBoomHorizontalRange" : "Sonic boom horizontal range",
+  "gamerules.sonicBoomKnockbackMultiplier" : "Sonic boom knockback multiplier",
+  "gamerules.sonicBoomVerticalRange" : "Sonic boom vertical range",
+  "gamerules.wardenDarknessEffectRange" : "Warden darkness effect range",
+  "gamerules.wardenDigCooldown" : "Warden dig cooldown",
+  "gamerules.wardenSniffCooldown" : "Warden sniff cooldown"
+}
