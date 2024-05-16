@@ -22,8 +22,7 @@ public class WardenBrainMixin {
     @Inject(method = {"resetDigCooldown"}, at = {@At("HEAD")}, cancellable = true)
     private static void resetDigCooldown(LivingEntity warden, CallbackInfo info) {
         if (warden.getBrain().hasMemoryModule(MemoryModuleType.DIG_COOLDOWN)) {
-            GameRules.IntRule rule = warden.world.getGameRules().get(MoreWardenGamerules.WARDEN_DIG_COOLDOWN);
-            warden.getBrain().remember(MemoryModuleType.DIG_COOLDOWN, Unit.INSTANCE, rule.get());
+            warden.getBrain().remember(MemoryModuleType.DIG_COOLDOWN, Unit.INSTANCE, warden.world.getGameRules().get(MoreWardenGamerules.WARDEN_DIG_COOLDOWN).get());
         }
 
         info.cancel();

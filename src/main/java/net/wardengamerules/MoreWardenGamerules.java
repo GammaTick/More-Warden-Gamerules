@@ -37,7 +37,7 @@ public class MoreWardenGamerules {
         SONIC_BOOM_HORIZONTAL_RANGE = GameRuleRegistry.register("sonicBoomHorizontalRange", GameRules.Category.MOBS, GameRuleFactory.createDoubleRule(15, 0));
         SONIC_BOOM_VERTICAL_RANGE = GameRuleRegistry.register("sonicBoomVerticalRange", GameRules.Category.MOBS, GameRuleFactory.createDoubleRule(20, 0));
         SONIC_BOOM_COOLDOWN = GameRuleRegistry.register("sonicBoomCooldown", GameRules.Category.MOBS, GameRuleFactory.createIntRule(40, 0));
-        WARDEN_SNIFF_COOLDOWN = GameRuleRegistry.register("wardenSniffCooldown", GameRules.Category.MOBS, GameRuleFactory.createIntRule(100, 0));
+        WARDEN_SNIFF_COOLDOWN = GameRuleRegistry.register("wardenSniffCooldown", GameRules.Category.MOBS, GameRuleFactory.createIntRule(-1, -1));
         WARDEN_DARKNESS_EFFECT_RANGE  = GameRuleRegistry.register("wardenDarknessEffectRange", GameRules.Category.MOBS, GameRuleFactory.createIntRule(20, 0));
         CAN_WARDEN_IMMEDIATELY_DESPAWN = GameRuleRegistry.register("canWardenImmediatelyDespawn", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(false));
         CAN_WARDEN_BE_LEASHED = GameRuleRegistry.register("canWardenBeLeashed", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(false));

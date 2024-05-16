@@ -6,7 +6,8 @@
 		"MobEntityMixin",
 		"SonicBoomMixin",
 		"WardenBrainMixin",
-		"WardenEntityMixin"
+		"WardenEntityMixin",
+		"StartSniffingTaskMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
