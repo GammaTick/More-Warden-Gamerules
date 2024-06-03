@@ -7,7 +7,6 @@ import net.minecraft.entity.mob.WardenBrain;
 import net.minecraft.entity.mob.WardenEntity;
 import net.minecraft.util.Unit;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.wardengamerules.MoreWardenGamerules;
 import org.spongepowered.asm.mixin.Mixin;
