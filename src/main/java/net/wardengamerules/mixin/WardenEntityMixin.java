@@ -9,14 +9,13 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffectUtil;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.WardenBrain;
 import net.minecraft.entity.mob.WardenEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.Unit;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -62,30 +61,45 @@ public class WardenEntityMixin extends HostileEntity {
 
     @Inject(method = "initialize", at = @At("HEAD"), cancellable = true)
     private void initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt, CallbackInfoReturnable<EntityData> info) {
-        GameRules.IntRule rule = this.world.getGameRules().get(MoreWardenGamerules.WARDEN_DIG_COOLDOWN);
-        this.getBrain().remember(MemoryModuleType.DIG_COOLDOWN, Unit.INSTANCE, rule.get());
+        int duration = this.world.getGameRules().getInt(MoreWardenGamerules.WARDEN_DIG_COOLDOWN);
+
+        this.getBrain().remember(MemoryModuleType.DIG_COOLDOWN, Unit.INSTANCE, duration);
+        if (spawnReason == SpawnReason.TRIGGERED) {
+            this.setPose(EntityPose.EMERGING);
+            this.getBrain().remember(MemoryModuleType.IS_EMERGING, Unit.INSTANCE, WardenBrain.EMERGE_DURATION);
+            this.playSound(SoundEvents.ENTITY_WARDEN_AGITATED, 5.0f, 1.0f);
+        }
+        info.setReturnValue(super.initialize(world, difficulty, spawnReason, entityData, entityNbt));
         info.cancel();
     }
 
-    @Inject(method = "tryAttack", at = @At("RETURN"), cancellable = true)
-    private boolean tryAttack(Entity target, CallbackInfoReturnable<Boolean> info) {
+    @Inject(method = "tryAttack", at = @At("HEAD"), cancellable = true)
+    private void tryAttack(Entity target, CallbackInfoReturnable<Boolean> info) {
         this.world.sendEntityStatus(this, (byte)4);
         this.playSound(SoundEvents.ENTITY_WARDEN_ATTACK_IMPACT, 10.0F, this.getSoundPitch());
         SonicBoomTask.cooldown(this, this.getWorld().getGameRules().getInt(MoreWardenGamerules.SONIC_BOOM_COOLDOWN));
-        return super.tryAttack(target);
+        info.setReturnValue(super.tryAttack(target));
+        info.cancel();
     }
 
     @Inject(method = "updateAttackTarget", at = @At("HEAD"), cancellable = true)
     private void updateAttackTarget(LivingEntity target, CallbackInfo info) {
         this.getBrain().forget(MemoryModuleType.ROAR_TARGET);
         UpdateAttackTargetTask.updateAttackTarget(this, target);
-        SonicBoomTask.cooldown(this, this.getWorld().getGameRules().getInt(MoreWardenGamerules.SONIC_BOOM_COOLDOWN) * 5);
+
+        int cooldown = this.getWorld().getGameRules().getInt(MoreWardenGamerules.SONIC_BOOM_COOLDOWN);
+
+        if (cooldown == 40) {
+            SonicBoomTask.cooldown(this, 200);
+        } else {
+            SonicBoomTask.cooldown(this, this.getWorld().getGameRules().getInt(MoreWardenGamerules.SONIC_BOOM_COOLDOWN) * 5);
+        }
+
         info.cancel();
     }
 
     @Inject(method = "canImmediatelyDespawn", at = @At("TAIL"), cancellable = true)
     public void canImmediatelyDespawn(double distanceSquared, CallbackInfoReturnable<Boolean> info) {
-        boolean bl = this.getWorld().getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_IMMEDIATELY_DESPAWN);
-        info.setReturnValue(bl);
+        info.setReturnValue(this.getWorld().getGameRules().getBoolean(MoreWardenGamerules.CAN_WARDEN_IMMEDIATELY_DESPAWN));
     }
 }
